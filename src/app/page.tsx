@@ -507,39 +507,45 @@ function GallerySection() {
   const galleryImages = [
     {
       id: 1,
-      title: "Before & After Carpet Restoration",
-      description: "Living room carpet transformation - from heavily stained to like-new condition",
+      src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/L5t2LlW1L90yYr78gOVn/media/68cc5a3409fa3e9db0b40e4d.jpeg",
+      title: "Professional Carpet Cleaning Results",
+      description: "Amazing transformation showing the power of our 12-step cleaning process",
       category: "Before & After"
     },
     {
       id: 2,
-      title: "Commercial Office Cleaning",
-      description: "Professional carpet cleaning for a busy office space in Rocky Mount",
-      category: "Commercial"
+      src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/L5t2LlW1L90yYr78gOVn/media/68cc5a344fae2c19abdd1210.jpeg",
+      title: "Deep Steam Cleaning in Action",
+      description: "Our professional equipment and techniques delivering superior results",
+      category: "Process"
     },
     {
       id: 3,
-      title: "Upholstery Cleaning Results",
-      description: "Sofa and chair cleaning showing dramatic improvement in fabric appearance",
-      category: "Upholstery"
+      src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/L5t2LlW1L90yYr78gOVn/media/68cc5a34b800037b792a3a4a.jpeg",
+      title: "Carpet Restoration Excellence",
+      description: "Bringing heavily soiled carpets back to like-new condition",
+      category: "Restoration"
     },
     {
       id: 4,
-      title: "Tile & Grout Restoration",
-      description: "Kitchen tile and grout cleaning with protective sealing application",
-      category: "Tile & Grout"
+      src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/L5t2LlW1L90yYr78gOVn/media/68cc5a34d74f6b28ab5dd12e.jpeg",
+      title: "Commercial Carpet Cleaning",
+      description: "Professional cleaning services for businesses and commercial spaces",
+      category: "Commercial"
     },
     {
       id: 5,
-      title: "Pet Stain Removal",
-      description: "Complete pet stain and odor removal from bedroom carpet",
+      src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/L5t2LlW1L90yYr78gOVn/media/68cc5a34eaa0586d7ca94628.jpeg",
+      title: "Stain Removal Expertise",
+      description: "Removing tough stains that other companies say can't be cleaned",
       category: "Stain Removal"
     },
     {
       id: 6,
-      title: "Area Rug Cleaning",
-      description: "Delicate Persian rug cleaning with specialized techniques",
-      category: "Area Rugs"
+      src: "https://images.leadconnectorhq.com/image/f_webp/q_80/r_320/u_https://storage.googleapis.com/msgsndr/L5t2LlW1L90yYr78gOVn/media/68cc5a34f782ba7833b4bfdb.jpeg",
+      title: "Complete Carpet Care",
+      description: "Comprehensive cleaning and protection services for lasting results",
+      category: "Protection"
     }
   ];
 
@@ -566,43 +572,25 @@ function GallerySection() {
               className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
               data-oid={`gallery-item-${image.id}`}>
 
-              {/* Placeholder image with gradient background */}
+              {/* Real image */}
               <div
-                className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-teal-50 via-white to-cyan-50"
+                className="aspect-[4/3] w-full overflow-hidden bg-gray-100"
                 data-oid={`gallery-image-${image.id}`}>
 
                 <div className="relative h-full w-full">
-                  <div
-                    className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(13,148,136,0.1),transparent_40%),radial-gradient(circle_at_70%_80%,rgba(8,145,178,0.1),transparent_45%)]"
-                    data-oid={`gallery-bg-${image.id}`} />
-
-                  <div
-                    className="absolute inset-6 rounded-lg border border-dashed border-teal-300/40"
-                    data-oid={`gallery-border-${image.id}`} />
+                  <img
+                    src={image.src}
+                    alt={image.title}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    data-oid={`gallery-img-${image.id}`}
+                  />
 
                   {/* Category badge */}
                   <div
-                    className="absolute top-3 left-3 rounded-md bg-teal-600/90 px-2 py-1 text-xs font-medium text-white"
+                    className="absolute top-3 left-3 rounded-md bg-teal-600/90 px-2 py-1 text-xs font-medium text-white backdrop-blur-sm"
                     data-oid={`gallery-category-${image.id}`}>
                     {image.category}
-                  </div>
-
-                  {/* Placeholder icon */}
-                  <div
-                    className="absolute inset-0 flex items-center justify-center"
-                    data-oid={`gallery-icon-${image.id}`}>
-                    <div className="rounded-full bg-white/80 p-4 shadow-sm">
-                      <svg
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        className="h-8 w-8 text-teal-600"
-                        data-oid={`gallery-svg-${image.id}`}>
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                        <circle cx="9" cy="9" r="2"/>
-                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
-                      </svg>
-                    </div>
                   </div>
                 </div>
               </div>
