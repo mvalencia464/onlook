@@ -152,6 +152,9 @@ function Header() {
           <a href="#about" className="hover:text-teal-700" data-oid="cp30zcs">
             About
           </a>
+          <a href="#gallery" className="hover:text-teal-700" data-oid="gallery-nav">
+            Gallery
+          </a>
           <a href="#reviews" className="hover:text-teal-700" data-oid="2r5_..7">
             Reviews
           </a>
@@ -497,6 +500,156 @@ function AboutSection() {
       </Container>
     </section>);
 
+}
+
+// Gallery
+function GallerySection() {
+  const galleryImages = [
+    {
+      id: 1,
+      title: "Before & After Carpet Restoration",
+      description: "Living room carpet transformation - from heavily stained to like-new condition",
+      category: "Before & After"
+    },
+    {
+      id: 2,
+      title: "Commercial Office Cleaning",
+      description: "Professional carpet cleaning for a busy office space in Rocky Mount",
+      category: "Commercial"
+    },
+    {
+      id: 3,
+      title: "Upholstery Cleaning Results",
+      description: "Sofa and chair cleaning showing dramatic improvement in fabric appearance",
+      category: "Upholstery"
+    },
+    {
+      id: 4,
+      title: "Tile & Grout Restoration",
+      description: "Kitchen tile and grout cleaning with protective sealing application",
+      category: "Tile & Grout"
+    },
+    {
+      id: 5,
+      title: "Pet Stain Removal",
+      description: "Complete pet stain and odor removal from bedroom carpet",
+      category: "Stain Removal"
+    },
+    {
+      id: 6,
+      title: "Area Rug Cleaning",
+      description: "Delicate Persian rug cleaning with specialized techniques",
+      category: "Area Rugs"
+    }
+  ];
+
+  return (
+    <section
+      id="gallery"
+      className="bg-white py-16 sm:py-20"
+      data-oid="gallery-section">
+
+      <Container data-oid="gallery-container">
+        <SectionHeading
+          kicker="Gallery"
+          title="See the Amazing Results"
+          subtitle="Real transformations from our satisfied customers across Rocky Mount, Wilson, and surrounding areas. These results speak for themselves!"
+          data-oid="gallery-heading" />
+
+        <div
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          data-oid="gallery-grid">
+
+          {galleryImages.map((image) => (
+            <div
+              key={image.id}
+              className="group relative overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+              data-oid={`gallery-item-${image.id}`}>
+
+              {/* Placeholder image with gradient background */}
+              <div
+                className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-teal-50 via-white to-cyan-50"
+                data-oid={`gallery-image-${image.id}`}>
+
+                <div className="relative h-full w-full">
+                  <div
+                    className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(13,148,136,0.1),transparent_40%),radial-gradient(circle_at_70%_80%,rgba(8,145,178,0.1),transparent_45%)]"
+                    data-oid={`gallery-bg-${image.id}`} />
+
+                  <div
+                    className="absolute inset-6 rounded-lg border border-dashed border-teal-300/40"
+                    data-oid={`gallery-border-${image.id}`} />
+
+                  {/* Category badge */}
+                  <div
+                    className="absolute top-3 left-3 rounded-md bg-teal-600/90 px-2 py-1 text-xs font-medium text-white"
+                    data-oid={`gallery-category-${image.id}`}>
+                    {image.category}
+                  </div>
+
+                  {/* Placeholder icon */}
+                  <div
+                    className="absolute inset-0 flex items-center justify-center"
+                    data-oid={`gallery-icon-${image.id}`}>
+                    <div className="rounded-full bg-white/80 p-4 shadow-sm">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        className="h-8 w-8 text-teal-600"
+                        data-oid={`gallery-svg-${image.id}`}>
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="9" cy="9" r="2"/>
+                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Content overlay */}
+              <div
+                className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent p-4"
+                data-oid={`gallery-overlay-${image.id}`}>
+
+                <h3
+                  className="text-sm font-semibold text-white"
+                  data-oid={`gallery-title-${image.id}`}>
+                  {image.title}
+                </h3>
+                <p
+                  className="mt-1 text-xs text-white/90"
+                  data-oid={`gallery-desc-${image.id}`}>
+                  {image.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Call to action */}
+        <div className="mt-12 text-center" data-oid="gallery-cta">
+          <p className="text-sm text-gray-600 mb-4">
+            Ready to see these results in your own home or business?
+          </p>
+          <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+            <a
+              href={`tel:${PHONE}`}
+              className="inline-flex items-center justify-center rounded-md bg-teal-600 px-5 py-3 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-teal-700/10 transition hover:bg-teal-700"
+              data-oid="gallery-cta-phone">
+              Call {PHONE} for FREE Estimate
+            </a>
+            <a
+              href="#booking"
+              className="inline-flex items-center justify-center rounded-md bg-white px-5 py-3 text-sm font-semibold text-teal-700 ring-1 ring-inset ring-teal-600/20 transition hover:bg-teal-50"
+              data-oid="gallery-cta-booking">
+              Schedule Online
+            </a>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
 }
 
 // Testimonials
@@ -972,6 +1125,7 @@ export default function Page() {
         <Hero data-oid=":wrse9t" />
         <ServicesSection data-oid="-8pg3tz" />
         <AboutSection data-oid="o-c8w7r" />
+        <GallerySection data-oid="gallery-main" />
         <TestimonialsSection data-oid="_396xsi" />
         <WhySection data-oid="pcbnqu8" />
         <ContactSection data-oid="aj6raq4" />
