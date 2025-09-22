@@ -152,9 +152,9 @@ function Header() {
           <a href="#about" className="hover:text-teal-700" data-oid="cp30zcs">
             About
           </a>
-          <a href="#gallery" className="hover:text-teal-700" data-oid="gallery-nav">
+          <Link href="/gallery" className="hover:text-teal-700" data-oid="gallery-nav">
             Gallery
-          </a>
+          </Link>
           <a href="#reviews" className="hover:text-teal-700" data-oid="2r5_..7">
             Reviews
           </a>
