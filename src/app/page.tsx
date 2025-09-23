@@ -1,18 +1,9 @@
 "use client";
 
 import React from "react";
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
-
-// Dynamically import the booking iframe to avoid hydration issues
-const BookingIframe = dynamic(() => import('@/components/BookingIframe'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-[600px] bg-gray-100 rounded-lg flex items-center justify-center">
-      <div className="text-gray-500">Loading booking form...</div>
-    </div>
-  )
-});
+import BookingIframe from '@/components/BookingIframe';
+import ClientOnlyWrapper from '@/components/ClientOnlyWrapper';
 
 // Simple, composable primitives
 const Container = ({
@@ -965,7 +956,15 @@ function BookingSection() {
           className="mx-auto max-w-6xl rounded-xl border border-gray-200 bg-white p-6 shadow-sm"
           data-oid="booking-embed-container">
 
-          <BookingIframe />
+          <ClientOnlyWrapper
+            fallback={
+              <div className="w-full h-[600px] bg-gray-100 rounded-lg flex items-center justify-center">
+                <div className="text-gray-500">Loading booking form...</div>
+              </div>
+            }
+          >
+            <BookingIframe />
+          </ClientOnlyWrapper>
 
         </div>
       </Container>

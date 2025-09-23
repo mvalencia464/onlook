@@ -1,25 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
-
 export default function BookingIframe() {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  if (!isClient) {
-    return (
-      <div 
-        className="w-full h-[600px] bg-gray-100 rounded-lg flex items-center justify-center"
-        data-oid="booking-iframe-placeholder"
-      >
-        <div className="text-gray-500">Loading booking form...</div>
-      </div>
-    );
-  }
-
   return (
     <iframe
       src="https://api.leadconnectorhq.com/widget/booking/VK5p3BfnXq2LNHpzyHj6"
